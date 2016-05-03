@@ -11,4 +11,4 @@ TeamCity나 Jenkins를 이용한 자동 빌드 시스템으로 지속적인 통�
 다음은 TeamCity의 빌드 스크립트 예제 입니다.
 ![2](https://cloud.githubusercontent.com/assets/3689439/14973601/c73cd3ec-1124-11e6-871b-ea678dedebca.png)
 
-- "C:\Util\ISMEditor\ISMEditor.exe" -p %teamcity.build.workingDir%\SightPro.Deploy.ism -v 2.1.%build.counter%.0
+- "C:\Util\ISMEditor\ISMEditor.exe" -p %teamcity.build.workingDir%\Deploy.ism -v 2.1.%build.counter%.0
