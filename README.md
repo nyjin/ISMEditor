@@ -1,6 +1,6 @@
 # 소개
-인스톨쉴드 ISM 파일 에디터입니다.
-커맨드라인으로 지정된 ism 파일의 product code, product version, package code를 수정 하실 수 있습니다.
+ISM 파일의 제품 코드, 버전, 패키지 코드를 수정 하는 에디터입니다.
+InstallShield를 자동 빌드 하기 위해 개발 되었습니다.
 
 # 사용법
 ismeditor.exe로 실행 하실 수 있으며, 파라미터는 다음의 사용법을 참조 하여 사용하시면 됩니다.
