@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommandLine;
-using CommandLine.Text;
 
-namespace ISMEditor
+namespace DeployFileEditor
 {
     class Program
     {
@@ -18,36 +12,9 @@ namespace ISMEditor
                 Console.WriteLine(options.GetUsage());
                 return;
             }
-            var file = new IsmFile(options.FilePath);
-            file.ReplaceProductVersion(options.Version);
-            file.ReplacePackageCode(options.PackageCode);
-            file.ReplaceProductCode(options.ProductCode);
-            file.Save();
-
+            var processor = new DeployFileProcessor();
+            processor.Run(options);
             Console.WriteLine($"파일 [{options.FilePath}] 버전 [{options.Version}]");
-        }
-    }
-
-    internal class Options
-    {
-        [Option('p', "path", Required = true, HelpText = "Ism 파일 전체 경로를 지정합니다.")]
-        public string FilePath { get; set; }
-
-        [Option('v', "version", Required = true, HelpText = "대상 버전을 지정합니다.")]
-        public string Version { get; set; }
-
-        [Option('k', "package", Required = false, HelpText = "패키지 코드를 지정합니다. 지정하지 않으면 자동 생성 됩니다.")]
-        public string PackageCode { get; set; }
-
-        [Option('d', "product", Required = false, HelpText = "제품 코드를 지정합니다. 지정하지 않으면 자동 생성 됩니다.")]
-        public string ProductCode { get; set; }
-
-
-        [HelpOption]
-        public string GetUsage()
-        {
-            return HelpText.AutoBuild(this,
-                (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
         }
     }
 }

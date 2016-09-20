@@ -1,6 +1,6 @@
 using System;
 
-namespace ISMEditor
+namespace DeployFileEditor
 {
     public class ElementNotFoundException : Exception
     {

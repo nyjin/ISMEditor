@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISMEditor", "ISMEditor\ISMEditor.csproj", "{1FDE85CA-735D-4C46-A7DC-C760CF2ECCDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeployFileEditor", "ISMEditor\DeployFileEditor.csproj", "{1FDE85CA-735D-4C46-A7DC-C760CF2ECCDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISMEditor.Tests", "ISMEditor.Tests\ISMEditor.Tests.csproj", "{673525BA-B192-46CE-94E2-AB8CCB1E2A2A}"
 EndProject

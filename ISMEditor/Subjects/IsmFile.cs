@@ -4,26 +4,20 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace ISMEditor
+namespace DeployFileEditor.Subjects
 {
-    public class IsmFile
+    public class IsmFile : DeployFile
     {
-        public string Path { get; set; }
-        private readonly XDocument _document;
+        
+        private XDocument _document;
 
-        public IsmFile(string path)
+        public IsmFile()
         {
-            Path = path;
-            _document = XDocument.Load(path);
         }
 
         public IsmFile(StreamReader reader)
         {
             _document = XDocument.Load(reader);
-        }
-        private string CreateGuid()
-        {
-            return Guid.NewGuid().ToString("B").ToUpper();
         }
 
         private XElement GetElement(string xpath)
@@ -43,29 +37,28 @@ namespace ISMEditor
             codeValue.Value = val;
         }
 
-        public void ReplacePackageCode(string value = "")
+        protected override void ProcessReplacePackageCode(string value)
         {
-            if (string.IsNullOrEmpty(value))
-            {
-                value = CreateGuid();
-            }
             var ele = GetElement("/msi/summary/revnumber");
             ele.Value = value;
         }
-        public void ReplaceProductCode(string value = "")
+
+        protected override void ProcessReplaceProductCode(string value)
         {
-            if (string.IsNullOrEmpty(value))
-            {
-                value = CreateGuid();
-            }
             ReplacePropertyValue("ProductCode", value);
         }
-        public void ReplaceProductVersion(string value)
+
+        protected override void ProcessReplaceProductVersion(string value)
         {
             ReplacePropertyValue("ProductVersion", value);
         }
 
-        public void Save()
+        protected override void ProcessLoad(string path)
+        {
+            _document = XDocument.Load(path);
+        }
+
+        public override void Save()
         {
             if (string.IsNullOrEmpty(Path))
             {
